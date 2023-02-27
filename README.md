@@ -1,0 +1,2 @@
+# AlgoritmiTietoRakenne
+Algoritmien ja tietorakenteiden harjoituksia
