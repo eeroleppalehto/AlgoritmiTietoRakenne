@@ -1,15 +1,13 @@
-def yksi_merkki(merkkijono):
+def laske(merkkijono, kielletty_merkki):
     laskuri = 0
     osajono = ""
-    for i, kirjain in enumerate(merkkijono):
-        if i == 0:
-            osajono = kirjain
-        elif kirjain == osajono[len(osajono)-1]:
+    for kirjain in merkkijono:
+        if kirjain != kielletty_merkki:
             osajono += kirjain
         else:
             pituus = len(osajono)
             laskuri += summa(pituus)
-            osajono = kirjain
+            osajono = ""
 
     pituus = len(osajono)
     laskuri += summa(pituus)    
@@ -20,6 +18,7 @@ def summa(n):
     tulos = int(n*(n + 1)/2)
     return tulos
 
+
 if __name__ == "__main__":
-    testi = yksi_merkki("aaabbb")
+    testi = laske("aaabaac", "b")
     print(testi)
