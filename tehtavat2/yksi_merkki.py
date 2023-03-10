@@ -1,24 +1,25 @@
 def yksi_merkki(merkkijono):
     laskuri = 0
     osajono = merkkijono[0]
-    osajonot = []
     for i, kirjain in enumerate(merkkijono):
         if i == 0:
             continue
         elif kirjain == osajono[len(osajono)-1]:
             osajono += kirjain
         else:
-            osajonot.append(osajono)
+            pituus = len(osajono)
+            laskuri += summa(pituus)
             osajono = kirjain
-    
-    osajonot.append(osajono)
 
-    for item in osajonot:
-        pituus = len(item)
-        laskuri += int(pituus*(pituus + 1)/2)
+    pituus = len(osajono)
+    laskuri += summa(pituus)    
 
     return laskuri
 
+def summa(n):
+    tulos = int(n*(n + 1)/2)
+    return tulos
+
 if __name__ == "__main__":
-    testi = yksi_merkki("aaabaa")
+    testi = yksi_merkki("aaaab")
     print(testi)
